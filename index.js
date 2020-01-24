@@ -35,7 +35,7 @@ module.exports = async (req, res) => {
 
   let statusCode, data
   try {
-    const { body: html } = await got(url);
+    const { body: html } = await got(url, { headers: { 'User-Agent': 'Googlebot-Image/1.0' } });
     data = await metascraper({ url, html })
     statusCode = 200
   } catch (err) {
